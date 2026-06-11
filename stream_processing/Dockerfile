@@ -5,6 +5,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY stream_processing/stream_processor.py .
+COPY stream_processor.py .
 
 CMD ["python", "stream_processor.py"]
