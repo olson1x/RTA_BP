@@ -59,6 +59,7 @@ Ten katalog zawiera lokalną infrastrukturę do odpalenia Kafki dla generatora t
 - Schema Registry.
 - Kafka UI.
 - Init container tworzący topic `transactions`.
+- Streamlit
 
 ## Uruchomienie
 1. Zainstaluj Docker i Docker Compose.
@@ -74,6 +75,7 @@ docker compose up -d
 - Kafka UI: `http://localhost:8080`
 - Schema Registry: `http://localhost:8081`
 - Zookeeper: `localhost:2181`
+- Streamlit: `localhost:8501`
 
 ## Topic
 Tworzony jest topic `transactions`:
@@ -187,4 +189,24 @@ Skrypt należy uruchomić po utworzeniu tabel oraz po wygenerowaniu pliku seed p
 ```bash
 python stream_processing/stream_processor.py
 python init/load-seed.py
+```
+
+### Moduł Wizualizacji (Dashboard BI)
+
+Moduł służący do monitorowania transakcji i wykrywania oszustw w czasie rzeczywistym. Został zbudowany przy użyciu frameworka **Streamlit**. 
+
+Do momentu ostatecznej konteneryzacji i integracji całego środowiska w Dockerze, moduł obsługuje tryb deweloperski, w którym zaciąga dane bezpośrednio z pliku `seed-data.json`.
+
+**Lokalne uruchomienie modułu:**
+
+1. Upewnij się, że znajdujesz się w głównym katalogu projektu.
+2. Zainstaluj wszystkie wymagane pakiety:
+   ```bash
+   pip install -r requirements.txt
+   ```
+## (Uwaga dla użytkowników Linuxa: jeśli system blokuje globalną instalację, użyj flagi --break-system-packages lub skonfiguruj wirtualne środowisko venv).
+
+3. Uruchom serwer aplikacji komendą:
+```bash
+streamlit run dashboard.py
 ```
