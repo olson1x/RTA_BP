@@ -204,7 +204,7 @@ Do momentu ostatecznej konteneryzacji i integracji całego środowiska w Dockerz
    ```bash
    pip install -r requirements.txt
    ```
-## (Uwaga dla użytkowników Linuxa: jeśli system blokuje globalną instalację, użyj flagi --break-system-packages lub skonfiguruj wirtualne środowisko venv).
+(Uwaga dla użytkowników Linuxa: jeśli system blokuje globalną instalację, użyj flagi --break-system-packages lub skonfiguruj wirtualne środowisko venv).
 
 3. Uruchom serwer aplikacji komendą:
 ```bash
